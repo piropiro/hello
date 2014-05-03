@@ -1,0 +1,47 @@
+apply plugin: 'base' // To add "clean" task to the root project.
+
+subprojects {
+    apply from: rootProject.file('common.gradle')
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "${artifactory_contextUrl}/plugins-release"
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        }
+        
+    }
+    dependencies {
+        classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.9')
+    }
+}
+
+allprojects {
+    apply plugin: 'artifactory'
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'libs-release-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'libs-release'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+}

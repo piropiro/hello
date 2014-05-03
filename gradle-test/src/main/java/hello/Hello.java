@@ -6,13 +6,36 @@
 
 package hello;
 
+import java.io.IOException;
+
 /**
  *
  * @author rara
  */
 public class Hello {
     
+    private HelloMessager helloMessager = null;
+    
+    public Hello() {
+        helloMessager = new HelloMessager();
+    }
     public String sayHello() {
-        return "hello";
+        return helloMessager.getMessage();
+    }
+    
+    public String sayNow() {
+        return helloMessager.getNow();
+    }
+    
+    public void writeHello() throws IOException {
+        helloMessager.writeMessage();
+    }
+    
+    public String sayStatic() {
+        return HelloMessager.getStaticMessage();
+    }
+    
+    public String sayPrivate() {
+        return helloMessager.getPrivateMessage();
     }
 }
