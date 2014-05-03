@@ -18,7 +18,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.Spy;
-import org.mockito.stubbing.OngoingStubbing;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -100,7 +99,7 @@ public class HelloTest {
     @Test(expected = FileNotFoundException.class)
     public void writeHello_002() throws Exception {
         FileOutputStream fos = PowerMockito.mock(FileOutputStream.class);
-        PowerMockito.doThrow(new FileNotFoundException("dummy")).when(fos).write(Mockito.anyObject());
+        PowerMockito.doThrow(new FileNotFoundException("dummy")).when(fos).write((byte[])Mockito.anyObject());
         PowerMockito.whenNew(FileOutputStream.class)
                 .withParameterTypes(String.class).withArguments(Mockito.anyObject()) // OK
                 // .withArguments("hello.txt") // OK
