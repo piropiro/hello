@@ -20,7 +20,7 @@ public class Hello {
         helloMessager = new HelloMessager();
     }
     public String sayHello() {
-        return helloMessager.getMessage();
+        return helloMessager.getMessage("taro");
     }
     
     public String sayNow() {
@@ -32,10 +32,10 @@ public class Hello {
     }
     
     public String sayStatic() {
-        return HelloMessager.getStaticMessage();
+        return HelloMessager.getStaticMessage("taro");
     }
     
     public String sayPrivate() {
-        return helloMessager.getPrivateMessage();
+        return helloMessager.getPublicMessage("taro");
     }
 }

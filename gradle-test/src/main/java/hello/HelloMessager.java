@@ -6,8 +6,6 @@
 
 package hello;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -19,8 +17,8 @@ import java.util.Date;
  */
 public class HelloMessager {
     
-    public String getMessage() {
-        return "hello";
+    public String getMessage(String name) {
+        return "hello " + name;
     }
     
     public String getNow() {
@@ -33,15 +31,15 @@ public class HelloMessager {
         }
     }
     
-    public static String getStaticMessage() {
-        return "static";
+    public static String getStaticMessage(String name) {
+        return "static " + name;
     }
     
-    public String getPrivateMessage() {
-        return getPrivateMessageInternal();
+    public String getPublicMessage(String name) {
+        return getPrivateMessage(name);
     }
     
-    private String getPrivateMessageInternal() {
-        return "private";
+    private String getPrivateMessage(String name) {
+        return "private " + name;
     }
 }
