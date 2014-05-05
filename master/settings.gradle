@@ -1,1 +1,2 @@
 includeFlat 'gradle-test'
+includeFlat 'gradle-common', 'gradle-batch'
