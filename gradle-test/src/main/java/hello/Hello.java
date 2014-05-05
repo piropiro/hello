@@ -38,4 +38,24 @@ public class Hello {
     public String sayPrivate() {
         return helloMessager.getPublicMessage("taro");
     }
+    
+    public String ifHello(boolean flag) {
+        String result = "";
+        
+        if (flag) {
+            result = "hello";
+        }
+        
+        return result;
+    }
+    
+    public String switchHello(int flag) {
+        String result = "";
+        switch (flag) {
+            case 1:
+                result = "hello";
+        }
+        
+        return result;
+    }
 }

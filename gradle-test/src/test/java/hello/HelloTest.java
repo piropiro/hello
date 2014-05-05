@@ -137,4 +137,13 @@ public class HelloTest {
         verifyPrivate(helloMessager).invoke("getPrivateMessage", "taro");
     }
     
+    @Test
+    public void ifHello_001() {
+        assertThat(target.ifHello(true), is("hello"));
+    }
+    
+    @Test
+    public void switchHello_001() {
+        assertThat(target.switchHello(1), is("hello"));
+    }
 }
