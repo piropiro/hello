@@ -1,2 +1,2 @@
 includeFlat 'gradle-test'
-includeFlat 'gradle-common', 'gradle-batch'
+//includeFlat 'gradle-common', 'gradle-batch'
