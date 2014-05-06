@@ -13,44 +13,6 @@ String mavenVersion = '1.0-SNAPSHOT'
 sourceCompatibility = '1.7'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-buildscript {
-    repositories {
-        maven {
-            url 'http://172.28.128.3:8081/artifactory/plugins-release'
-            credentials {
-                username = "${artifactory_user}"
-                password = "${artifactory_password}"
-            }
-        }
-        
-    }
-    dependencies {
-        classpath(group: 'org.jfrog.buildinfo', name: 'build-info-extractor-gradle', version: '2.0.9')
-    }
-}
-
-artifactory {
-    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
-    publish {
-        repository {
-            repoKey = 'libs-release-local'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'libs-release'
-            username = "${artifactory_user}"
-            password = "${artifactory_password}"
-            maven = true
-            
-        }
-    }
-}
-
 dependencies {
     // Adding dependencies here will add the dependencies to each subproject.
     testCompile group: 'junit', name: 'junit', version: '4.11'
