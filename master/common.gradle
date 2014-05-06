@@ -49,6 +49,6 @@ task createFolders(description: 'Creates the source folders if they do not exist
 
 test {
     jacoco {
-        excludes = ['**/*Test']
+        excludes = ['**/*Test.*']
     }
 }
